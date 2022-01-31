@@ -18,9 +18,9 @@ process_init (void)
   fsm->runtime = 0;
   // fsm->transition = 
 
+  free(fsm);
   return true;
 }
-
 
 static state_t const _transitions[NUM_STATES][NUM_EVENTS] = {
   // ADMIT DISPATCH SCHEDULE BLOCK UNBLOCK EXIT KILL NIL
