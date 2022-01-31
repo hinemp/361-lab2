@@ -28,19 +28,15 @@ static action_t const _effects[NUM_STATES][NUM_EVENTS] = {
 static action_t const _entry[NUM_STATES]
     = { reset_runtime, NULL, incr_runtime, say_blocked, print_stats };
 
-static parse_transition(fsm_t *fsm, event_t event, action_t *effect,
-                        action_t *entry) {
-    if (fsm->state >= NST || event >= NIL ||
-        _transitions[fsm->state][event] == NST)
-        return -1;
-
-    *effect = _effects[fsm->state][event];
-
-    state_t next = _transitions[fsm->state][event];
-    // if (next != NST)
-    //   *entry = _entry[next];
-
-    return next;
+static parse_transition (fsm_t *fsm, event_t event, action_t *effect,
+                         action_t *entry) 
+{
+  if (fsm->state >= NST || event >= NIL 
+      || _transitions[fsm->state][event] == NST)
+    return -1;
+  *effect = _effects[fsm->state][event];
+  state_t next = _transitions[fsm->state][event];
+  return next;
 }
 
 /* Initialize FSM to contain pointers to transition table, effect table,
