@@ -32,7 +32,7 @@ handle_event (fsm_t *fsm, event_t event)
   
   printf ("%s.%s -> ", state_names[fsm->state], event_names[event]);
 
-  if (next == -1 && event == NIL) {
+  if (next == -1) {
     printf("NST\n");
     return;
   } else {
