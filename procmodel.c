@@ -21,7 +21,7 @@ process_init (void)
   return true;
 }
 
- parse_transition (fsm_t *fsm, event_t event, action_t *effect, action_t *entry)
+static parse_transition (fsm_t *fsm, event_t event, action_t *effect, action_t *entry)
 {
   if (fsm->state >= NST || event >= NIL || _transitions[fsm->state][event] == NST)
     return -1;
