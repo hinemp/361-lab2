@@ -47,5 +47,4 @@ handle_event (fsm_t *fsm, event_t event)
           state_names[next]);
 
   fsm->state = next;
-
 }
