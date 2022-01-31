@@ -21,19 +21,6 @@ process_init (void)
   return true;
 }
 
-static parse_transition (fsm_t *fsm, event_t event, action_t *effect, action_t *entry)
-{
-  if (fsm->state >= NST || event >= NIL || _transitions[fsm->state][event] == NST)
-    return -1;
-
-  *effect = _effects[fsm->state][event];
-
-  state_t next = _transitions[fsm->state][event];
-  if (next != NST)
-    *entry = _entry[next];
-
-  return next;
-}
 
 static state_t const _transitions[NUM_STATES][NUM_EVENTS] = {
   // ADMIT DISPATCH SCHEDULE BLOCK UNBLOCK EXIT KILL NIL
@@ -58,3 +45,17 @@ static action_t const _effects[NUM_STATES][NUM_EVENTS] = {
 static action_t const _entry[NUM_STATES] = {
   reset_runtime, NULL, incr_runtime, say_blocked, print_stats, NULL
 };
+
+static parse_transition (fsm_t *fsm, event_t event, action_t *effect, action_t *entry)
+{
+  if (fsm->state >= NST || event >= NIL || _transitions[fsm->state][event] == NST)
+    return -1;
+
+  *effect = _effects[fsm->state][event];
+
+  state_t next = _transitions[fsm->state][event];
+  if (next != NST)
+    *entry = _entry[next];
+
+  return next;
+}
