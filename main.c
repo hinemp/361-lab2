@@ -53,9 +53,10 @@ main (int argc, char **argv)
   while (arg_counter < argc) {
     // Parse to int
     event_t curr = atoi(argv[arg_counter]);
-    // state.event -> new state
+    state_t og = process->state;
+    handle_event(process, curr);
     // state.
-    switch (process->state)
+    switch (og)
     {
       case NEW:
         printf("NEW.");
@@ -130,7 +131,6 @@ main (int argc, char **argv)
     default:
       break;
     }
-    handle_event(process, curr);
     arg_counter++;
   }
 
