@@ -106,7 +106,6 @@ main (int argc, char **argv)
         printf("NIL -> ");
         break;
     }
-    handle_event(process, curr);
     // New state
     switch (process->state)
     {
@@ -131,6 +130,7 @@ main (int argc, char **argv)
     default:
       break;
     }
+    handle_event(process, curr);
     arg_counter++;
   }
 
