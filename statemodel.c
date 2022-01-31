@@ -33,12 +33,11 @@ handle_event (fsm_t *fsm, event_t event)
   printf ("%s.%s -> ", state_names[fsm->state], event_names[event]);
 
   if (next == -1) {
-    printf("NST\n");
+    printf ("%s.%s -> %s\n", state_names[fsm->state], event_names[event], "NST");
     return;
-  } else {
-    printf("%s\n", state_names[next]);
   }
 
+  printf ("%s.%s -> %s\n", state_names[fsm->state], event_names[event], state_names[next]);
 
   fsm->state = next;
 
