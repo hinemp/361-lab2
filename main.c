@@ -54,7 +54,7 @@ main (int argc, char **argv)
     // Parse to int
     event_t curr = atoi(argv[arg_counter]);
     state_t og = process->state;
-    handle_event(process, curr);
+    // handle_event(process, curr);
     // state.
     switch (og)
     {
