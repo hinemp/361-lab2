@@ -50,7 +50,6 @@ main (int argc, char **argv)
 
   // TODO: Replace this with a loop for all events.
   int arg_counter = 0;
-  printf("%s <-- argv[1]", argv[1]);
   while (arg_counter < argc) {
     // Parse to int
     event_t curr = atoi(argv[arg_counter]);
