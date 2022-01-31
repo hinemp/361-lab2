@@ -28,8 +28,8 @@ static action_t const _effects[NUM_STATES][NUM_EVENTS] = {
 // static action_t const _entry[NUM_STATES]
 //     = { reset_runtime, NULL, incr_runtime, say_blocked, print_stats };
 
-static state_t parse_transition (fsm_t *fsm, event_t event, action_t *effect,
-                         action_t *entry)
+static state_t 
+parse_transition (fsm_t *fsm, event_t event, action_t *effect, action_t *entry)
 {
   if (fsm->state >= NST || event >= NIL
       || _transitions[fsm->state][event] == NST)
