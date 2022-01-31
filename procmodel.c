@@ -29,7 +29,7 @@ static action_t const _entry[NUM_STATES]
     = { reset_runtime, NULL, incr_runtime, say_blocked, print_stats };
 
 static parse_transition (fsm_t *fsm, event_t event, action_t *effect,
-                         action_t *entry) 
+                         action_t *entry)
 {
   if (fsm->state >= NST || event >= NIL 
       || _transitions[fsm->state][event] == NST)
@@ -43,13 +43,14 @@ static parse_transition (fsm_t *fsm, event_t event, action_t *effect,
    and entry actions. Also set the live, runtime, and state values to
    defaults. Return true if successful. Return false if anything fails
    or cannot be set successfully. */
-fsm_t *process_init(void) {
-    fsm_t *fsm = calloc(1, sizeof(fsm_t));
-    fsm->nevents = NUM_EVENTS;
-    fsm->state = NEW;
-    fsm->live = true;
-    fsm->runtime = 0;
-    fsm->transition = parse_transition;
-
-    return fsm;
+fsm_t *
+process_init(void)
+{
+  fsm_t *fsm = calloc(1, sizeof(fsm_t));
+  fsm->nevents = NUM_EVENTS;
+  fsm->state = NEW;
+  fsm->live = true;
+  fsm->runtime = 0;
+  fsm->transition = parse_transition;
+  return fsm;
 }
