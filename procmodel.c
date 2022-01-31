@@ -36,8 +36,8 @@ static parse_transition (fsm_t *fsm, event_t event, action_t *effect, action_t *
   *effect = _effects[fsm->state][event];
 
   state_t next = _transitions[fsm->state][event];
-  if (next != NST)
-    *entry = _entry[next];
+  // if (next != NST)
+  //   *entry = _entry[next];
 
   return next;
 }
