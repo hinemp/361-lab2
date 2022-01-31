@@ -55,7 +55,7 @@ main (int argc, char **argv)
     event_t curr = atoi(argv[arg_counter]);
     handle_event (process, curr);
     // state.event -> new state
-    printf("%d", process->state);
+    printf("%d\n", process->state);
     arg_counter++;
   }
 
