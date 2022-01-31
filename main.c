@@ -53,9 +53,9 @@ main (int argc, char **argv)
   while (arg_counter < argc) {
     // Parse to int
     event_t curr = atoi(argv[arg_counter]);
-    handle_event (process, curr);
     // state.event -> new state
     printf("%d\n", process->state);
+    handle_event (process, curr);
     arg_counter++;
   }
 
