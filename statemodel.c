@@ -23,24 +23,24 @@ handle_event (fsm_t *fsm, event_t event)
   // printf ("%s.%s -> %s\n", ...);
 
   if (event >= fsm->nevents)
-  {
-    return;
-  }
+    {
+      return;
+    }
 
   action_t effect = NULL;
   action_t entry = NULL;
   state_t next = fsm->transition( fsm, event, &effect, &entry);
 
   if (next == -1 && event == ADMIT)
-  {
-    return;
-  }
+    {
+      return;
+    }
 
   if (next == -1)
-  {
-    printf ("%s.%s -> %s\n", state_names[fsm->state], event_names[event], "NST");
-    return;
-  }
+    {
+      printf ("%s.%s -> %s\n", state_names[fsm->state], event_names[event], "NST");
+      return;
+    }
 
   printf ("%s.%s -> %s\n", state_names[fsm->state], event_names[event], state_names[next]);
 
