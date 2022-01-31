@@ -4,24 +4,6 @@
 #include "procmodel.h"
 #include "statemodel.h"
 
-/* Initialize FSM to contain pointers to transition table, effect table,
-   and entry actions. Also set the live, runtime, and state values to
-   defaults. Return true if successful. Return false if anything fails
-   or cannot be set successfully. */
-fsm_t *
-process_init (void)
-{
-  fsm_t *fsm = calloc (1, sizeof (fsm_t));
-  fsm->nevents = NUM_EVENTS;
-  fsm->state = NEW;
-  fsm->live = true;
-  fsm->runtime = 0;
-  fsm->transition = parse_transition;  
-
-  free(fsm);
-  return true;
-}
-
 static state_t const _transitions[NUM_STATES][NUM_EVENTS] = {
   // ADMIT DISPATCH SCHEDULE BLOCK UNBLOCK EXIT KILL NIL
   {  RDY,  NST,     NST,     NST,  NST,    NST, TRM, NST }, // NEW
@@ -59,3 +41,22 @@ static parse_transition (fsm_t *fsm, event_t event, action_t *effect, action_t *
 
   return next;
 }
+
+/* Initialize FSM to contain pointers to transition table, effect table,
+   and entry actions. Also set the live, runtime, and state values to
+   defaults. Return true if successful. Return false if anything fails
+   or cannot be set successfully. */
+fsm_t *
+process_init (void)
+{
+  fsm_t *fsm = calloc (1, sizeof (fsm_t));
+  fsm->nevents = NUM_EVENTS;
+  fsm->state = NEW;
+  fsm->live = true;
+  fsm->runtime = 0;
+  fsm->transition = parse_transition;  
+
+  free(fsm);
+  return true;
+}
+
