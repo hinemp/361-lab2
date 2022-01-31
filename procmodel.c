@@ -16,7 +16,7 @@ process_init (void)
   fsm->state = NEW;
   fsm->live = true;
   fsm->runtime = 0;
-  // fsm->transition = 
+  fsm->transition = parse_transition;  
 
   free(fsm);
   return true;

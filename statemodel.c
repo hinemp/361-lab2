@@ -21,4 +21,26 @@ handle_event (fsm_t *fsm, event_t event)
   // state name, state name, the event name, and the new state
   // name for valid transitions.
   // printf ("%s.%s -> %s\n", ...);
+
+  if (event >= fsm->nevents) {
+    return;
+  }
+
+  action_t effect = NULL;
+  action_t entry = NULL;
+  state_t next = fsm->transition( fsm, event, &effect, &entry);
+  if (next == -1) {
+    return;
+  }
+  
+  if (effect != NULL) {
+    effect (fsm);
+  }
+
+  if (entry != NULL) {
+    entry (fsm);
+  }
+
+  fsm->state = next;
+
 }
