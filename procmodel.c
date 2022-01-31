@@ -25,8 +25,8 @@ static action_t const _effects[NUM_STATES][NUM_EVENTS] = {
 };
 
 // TODO: Create an array of action_t to map each state to its entry function
-static action_t const _entry[NUM_STATES] = {
-    reset_runtime, NULL, incr_runtime, say_blocked, print_stats };
+static action_t const _entry[NUM_STATES] 
+= { reset_runtime, NULL, incr_runtime, say_blocked, print_stats };
 
 static parse_transition(fsm_t *fsm, event_t event, action_t *effect,
                         action_t *entry) {
