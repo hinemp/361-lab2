@@ -49,7 +49,7 @@ main (int argc, char **argv)
 
   // TODO: Replace this with a loop for all events.
   int arg_counter = 0;
-  while (arg_counter < argc) 
+  while (arg_counter < argc)
     {
       // Parse to int
       event_t curr = strtol (argv[arg_counter], NULL, 10);
