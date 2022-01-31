@@ -41,6 +41,9 @@ handle_event (fsm_t *fsm, event_t event)
     entry (fsm);
   }
 
+  printf ("%s.%s -> %s\n", state_names[fsm->state], event_names[event], state_names[next]);
+
+
   fsm->state = next;
 
 }
