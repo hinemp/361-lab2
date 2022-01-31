@@ -30,12 +30,14 @@ handle_event (fsm_t *fsm, event_t event)
   action_t entry = NULL;
   state_t next = fsm->transition( fsm, event, &effect, &entry);
   
-  printf ("%s.%s -> %s\n", state_names[fsm->state], event_names[event], state_names[next]);
+  printf ("%s.%s -> ", state_names[fsm->state], event_names[event]);
 
-  if (next == -1) {
+  if (next == -1 && event == NIL) {
+    printf("NST\n");
     return;
+  } else {
+    printf("%s\n", state_names[next]);
   }
-
 
 
   fsm->state = next;
