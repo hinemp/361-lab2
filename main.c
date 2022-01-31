@@ -47,15 +47,15 @@ main (int argc, char **argv)
   if (process == NULL)
     return EXIT_FAILURE;
 
-
   // TODO: Replace this with a loop for all events.
   int arg_counter = 0;
-  while (arg_counter < argc) {
-    // Parse to int
-    event_t curr = strtol (argv[arg_counter], NULL, 10);
-    handle_event (process, curr);
-    arg_counter++;
-  }
+  while (arg_counter < argc) 
+    {
+      // Parse to int
+      event_t curr = strtol (argv[arg_counter], NULL, 10);
+      handle_event (process, curr);
+      arg_counter++;
+    }
 
   // Under normal runs, we should always end in TRM state
   if (process->state != TRM)
