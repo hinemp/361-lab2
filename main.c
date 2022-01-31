@@ -51,9 +51,6 @@ main (int argc, char **argv)
   // TODO: Replace this with a loop for all events.
   int arg_counter = 0;
   printf("%s", argv[0]);
-  while(arg_counter < argc)
-
-
 
   // EXAMPLE: Send ADMIT and DISPATCH to the process.
   handle_event (process, ADMIT);
