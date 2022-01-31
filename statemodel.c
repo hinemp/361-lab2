@@ -34,11 +34,11 @@ handle_event (fsm_t *fsm, event_t event)
   }
   
   if (effect != NULL) {
-    effect (fsm);
+    // effect (fsm);
   }
 
   if (entry != NULL) {
-    entry (fsm);
+    // entry (fsm);
   }
 
   printf ("%s.%s -> %s\n", state_names[fsm->state], event_names[event], state_names[next]);
