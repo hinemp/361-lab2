@@ -57,6 +57,6 @@ process_init (void)
   fsm->transition = parse_transition;  
 
   free(fsm);
-  return true;
+  return fsm;
 }
 
