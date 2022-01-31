@@ -54,14 +54,11 @@ main (int argc, char **argv)
   while (arg_counter < argc) {
     // Parse to int
     event_t curr = atoi(argv[arg_counter]);
+    handle_event (process, curr);
+    // state.event -> new state
+    printf("%s", process->state);
     arg_counter++;
   }
-
-  // EXAMPLE: Send ADMIT and DISPATCH to the process.
-  handle_event (process, ADMIT);
-  assert (process->state == RDY);
-  handle_event (process, DISPATCH);
-  assert (process->state == RUN);
 
   // Under normal runs, we should always end in TRM state
   if (process->state != TRM)
