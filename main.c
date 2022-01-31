@@ -54,8 +54,83 @@ main (int argc, char **argv)
     // Parse to int
     event_t curr = atoi(argv[arg_counter]);
     // state.event -> new state
-    printf("%d\n", process->state);
-    handle_event (process, curr);
+    // state.
+    switch (process->state)
+    {
+      case NEW:
+        printf("NEW.");
+        break;
+      case RDY:
+        printf("RDY.");
+        break;
+      case RUN:
+        printf("RUN.");
+        break;
+      case BLK:
+        printf("BLK.");
+        break;
+      case TRM:
+        printf("TRM.");
+        break;
+      case NST:
+        printf("NST.");
+        break;
+    default:
+      break;
+    }
+    // event -> 
+    switch (curr)
+    {
+      case ADMIT:
+        printf("ADMIT -> ");
+        break;
+      case DISPATCH:
+        printf("DISPATCH -> ");
+        break;
+      case SCHEDULE:
+        printf("SCHEDULE -> ");
+        break;
+      case BLOCK:
+        printf("BLOCK -> ");
+        break;
+      case UNBLOCK:
+        printf("UNBLOCK -> ");
+        break;
+      case EXIT:
+        printf("EXIT -> ");
+        break;
+      case KILL:
+        printf("KILL -> ");
+        break;
+      case NIL:
+        printf("NIL -> ");
+        break;
+    }
+    handle_event(process, curr);
+    // New state
+    switch (process->state)
+    {
+      case NEW:
+        printf("NEW\n");
+        break;
+      case RDY:
+        printf("RDY\n");
+        break;
+      case RUN:
+        printf("RUN\n");
+        break;
+      case BLK:
+        printf("BLK\n");
+        break;
+      case TRM:
+        printf("TRM\n");
+        break;
+      case NST:
+        printf("NST\n");
+        break;
+    default:
+      break;
+    }
     arg_counter++;
   }
 
