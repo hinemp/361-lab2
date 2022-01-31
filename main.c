@@ -52,10 +52,8 @@ main (int argc, char **argv)
   int arg_counter = 0;
   while (arg_counter < argc) {
     // Parse to int
-    event_t curr = atoi(argv[arg_counter]);
-    state_t og = process->state;
-    handle_event(process, curr);
-
+    event_t curr = strtol (argv[arg_counter], NULL, 10);
+    handle_event (process, curr);
     arg_counter++;
   }
 
